@@ -13,7 +13,7 @@ LOG_FILENAME = "running_logs.log"
 
 logging.basicConfig(
             filename = os.path.join(LOG_DIR, LOG_FILENAME), 
-            level=logging.INFO, 
+            level=logging.DEBUG, 
             format="[%(asctime)s: %(levelname)s: %(module)s]: %(message)s",
             filemode="a"
             )
