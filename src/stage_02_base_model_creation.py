@@ -1,7 +1,6 @@
 import argparse
 import os
 import logging
-from warnings import filters  
 import tensorflow as tf
 from src.utils.common import create_directories, read_yaml
 from src.utils.model import log_model_summary
