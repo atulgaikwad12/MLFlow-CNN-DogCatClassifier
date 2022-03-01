@@ -4,6 +4,7 @@ import shutil
 from tqdm import tqdm
 import logging  
 from src.utils.common import read_yaml, create_directories, unzip_file
+from src.utils.data_processing import validate_imgdata
 import random
 from urllib import request as req
 
@@ -48,7 +49,8 @@ def main(config_path, params_path):
         logging.info("Data file already unzipped")
 
 
-    #validate_image(config)
+    # validating unzipped image files 
+    validate_imgdata(config)
 
     
 
