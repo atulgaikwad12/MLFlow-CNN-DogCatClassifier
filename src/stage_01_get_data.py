@@ -1,16 +1,17 @@
 import argparse
 import os
-import shutil
-from tqdm import tqdm
+# import shutil
+# from tqdm import tqdm
 import logging  
 from src.utils.common import read_yaml, create_directories, unzip_file
 from src.utils.data_processing import validate_imgdata
-import random
+# import random
 from urllib import request as req
 
 
 STAGE = "GET_DATA" ## <<< change stage name 
-
+LOG_DIR = "logs"
+LOG_FILENAME = "running_logs.log"
 logging.basicConfig(
             filename = os.path.join(LOG_DIR, LOG_FILENAME), 
             level=logging.INFO, 
@@ -19,7 +20,7 @@ logging.basicConfig(
             )
 
 
-def main(config_path, params_path):
+def main(config_path):
     ## read config files
     config = read_yaml(config_path)
     
