@@ -1,5 +1,5 @@
-# MLflow-project-template
-MLflow project template
+# CNN Dog/Cat Classifier
+CNN Dog Cat Classifier applciation orchestrated using MLflow
 
 ## STEPS -
 
