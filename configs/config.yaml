@@ -1,6 +1,6 @@
 # It contains all the configs required in the project
 
-  ARTIFACTS_DIR: artifacts
+ARTIFACTS_DIR: artifacts
 artifacts:
   TRAINED_MODEL_DIR: model
   BASE_MODEL_DIR: base_model
@@ -34,12 +34,10 @@ params:
   epochs: 1
 
 callbacks:
-  list: ["ModelCheckpoint","customCallback"]
+  cblist: ["ModelCheckpoint","customCallback"]
   ModelCheckpoint:
-    filename : "model_ckpt.h5"
-    save_best_only : True
-    save_weights_only : False
+    filename: model_ckpt.h5
+    save_best_only: 1
+    save_weights_only: 0
   customCallback:
-    ACCURACY_THRESHOLD : 0.95
-  
-  
+    ACCURACY_THRESHOLD: 0.95
