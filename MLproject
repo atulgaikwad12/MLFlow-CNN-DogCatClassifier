@@ -24,4 +24,4 @@ entry_points:
   training:
     parameters:
       config: {type: str, default: "configs/config.yaml"}
-    command: "python src/stage_04_train.py --config={config}"
+    command: "python src/stage_04_train_model.py --config={config}"
