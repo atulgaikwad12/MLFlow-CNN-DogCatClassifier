@@ -49,7 +49,7 @@ def main(config_path):
     )
 
     base_model_dir = config["artifacts"]["BASE_MODEL_DIR"]
-    create_directories(base_model_dir)
+    create_directories([base_model_dir])
 
     full_base_model_path = os.path.join(
         base_model_dir,

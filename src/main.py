@@ -8,7 +8,7 @@ STAGE = "MAIN"  #Stage name for logs
 LOG_DIR = "logs"
 LOG_FILENAME = "running_logs.log"
 
-create_directories(LOG_DIR)
+create_directories([LOG_DIR])
 
 logging.basicConfig(
     filename=os.path.join(LOG_DIR,LOG_FILENAME),

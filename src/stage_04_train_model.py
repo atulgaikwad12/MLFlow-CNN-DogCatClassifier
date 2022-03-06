@@ -81,7 +81,7 @@ def main(config_path):
         classifier.fit(train_data, epochs=params["epochs"], validation_data = val_data)
 
     trained_model_dir = config["artifacts"]["TRAINED_MODEL_DIR"]
-    create_directories(trained_model_dir) # Created dir if not exists
+    create_directories([trained_model_dir]) # Created dir if not exists
 
     full_trained_model_path = os.path.join(
         trained_model_dir,

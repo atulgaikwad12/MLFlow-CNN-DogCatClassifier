@@ -38,7 +38,7 @@ def unzip_file(source: str, dest: str) -> None:
 
 def get_unique_log_path(base_log_dir="logs"):
 
-    create_directories(base_log_dir)
+    create_directories([base_log_dir])
 
     uniqueName = time.asctime().replace(" ", "_").replace(":", "")
     log_path = os.path.join(base_log_dir, uniqueName)

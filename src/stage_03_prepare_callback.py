@@ -37,7 +37,7 @@ def main(config_path):
     artifacts = config["artifacts"]
 
     callbacks_dir = artifacts["CALLBACKS_DIR"] 
-    create_directories(callbacks_dir)
+    create_directories([callbacks_dir])
 
     callbacksbyte_file = os.path.join(
     artifacts["CALLBACKS_DIR"],
