@@ -23,6 +23,8 @@ def main():
         # mlflow.run(".","get_data",parameters={},use_conda="false") # alternate way to pass parameters
         mlflow.run(".","get_data",use_conda="false")
         mlflow.run(".","base_model_creation",use_conda="false")
+        #mlflow.run(".","prepare_callback",use_conda="false")
+        mlflow.keras.autolog()
         mlflow.run(".","training",use_conda="false")
     
 
