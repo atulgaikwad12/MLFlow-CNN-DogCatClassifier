@@ -41,11 +41,15 @@ def main(config_path):
         logging.info(f"{filename} created with info {header}")
 
     # Unzip downloaded file 
-    unzip_data_dir = config["data"]["unzip_data_dir"]
-    if not os.path.exists(unzip_data_dir):
-        logging.info("Unzipping downloaded data file .......")
-        create_directories(unzip_data_dir)
-        unzip_file(source=data_file_path,dest=unzip_data_dir)
+    parent_data_dir = config["data"]["parent_data_dir"]
+    unzip_data_path = os.path.join(config["data"]["unzip_data_dir"],
+    config["data"]["parent_data_dir"])
+    
+    logging.info(f"Considering unzip data path  {unzip_data_path}")
+    if not os.path.exists(unzip_data_path):
+        logging.info(f"Unzipping downloaded data file ....at {parent_data_dir}...")
+        create_directories([parent_data_dir])
+        unzip_file(source=data_file_path,dest=unzip_data_path)
     else:
         logging.info("Data file already unzipped")
 
