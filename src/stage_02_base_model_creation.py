@@ -29,7 +29,7 @@ def main(config_path):
         tf.keras.layers.Input(shape=tuple(params["img_shape"])),
         tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3), activation= "relu"),
         tf.keras.layers.MaxPool2D(pool_size=(2,2)),
-        tf.keras.layers.Con2D(32,(3,3),activation= "relu"),
+        tf.keras.layers.Conv2D(32,(3,3),activation= "relu"),
         tf.keras.layers.MaxPool2D(pool_size=(2,2)),
         tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(8, activation="relu"),
