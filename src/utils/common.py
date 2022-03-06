@@ -5,6 +5,7 @@ import logging
 import time
 import pandas as pd
 import json
+import time
 
 def read_yaml(path_to_yaml: str) -> dict:
     with open(path_to_yaml) as yaml_file:
@@ -32,3 +33,15 @@ def unzip_file(source: str, dest: str) -> None:
         zip_f.extractall(dest)
     
     logging.info(f"zip extracted {source} to {dest}")
+
+
+
+def get_unique_log_path(base_log_dir="logs"):
+
+    create_directories(base_log_dir)
+
+    uniqueName = time.asctime().replace(" ", "_").replace(":", "")
+    log_path = os.path.join(base_log_dir, uniqueName)
+    logging.info(f"unique log file path: {log_path}")
+
+    return log_path
