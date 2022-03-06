@@ -71,7 +71,7 @@ def main(config_path):
     # Training on base model 
     logging.info("Traning Started ......")
 
-    callbacks_lst = getCallbackList()
+    callbacks_lst = getCallbackList(config_path)
 
     if(callbacks_lst is not None):
         logging.info(f"using {len(callbacks_lst)} callbacks during trainning ...")
