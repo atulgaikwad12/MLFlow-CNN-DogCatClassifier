@@ -32,3 +32,26 @@ conda env export > conda.yaml
 ```
 
 ### STEP 06- commit and push the changes to the remote repository
+```bash
+git add .
+git commit -m "commit message"
+git push 
+```
+
+### STEP 07 MlFlow command to run Project
+#### To consider default entry point main
+```bash
+mlflow run . --no-conda
+```
+#### run any specific entry point in MLproject file
+```bash
+mlflow run . -e get_data --no-conda
+```
+#### Passing config file overriding the defult defined inside MLproject file
+```bash
+mlflow run . -e get_data -P config=configs/your_config.yaml --no-conda
+```
+#### Defining experiment name 
+```bash
+mlflow run . -e main --experiment-name firstime --no-conda
+```
