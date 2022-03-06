@@ -18,12 +18,17 @@ def validate_imgdata(config: dict) -> None:
     )
 
     BAD_DATA_DIR = os.path.join(
+        config["data"]["unzip_data_dir"],
         config["data"]["bad_data_dir"]
     )
 
-    create_directories(BAD_DATA_DIR)
+    logging.info(f"Considering Bad data directory {BAD_DATA_DIR}")
+    create_directories([BAD_DATA_DIR])
 
     for dir in os.listdir(PARENT_DATA_DIR):
+
+        if(os.path.isdir(dir) == False):
+            continue # skip not directory item could any file 
 
         sub_dir = os.path.join(PARENT_DATA_DIR, dir)
 
