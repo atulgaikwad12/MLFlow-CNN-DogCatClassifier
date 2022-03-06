@@ -5,6 +5,7 @@ from random import seed
 import tensorflow as tf
 from tensorflow.python.ops.gen_math_ops import imag
 from src.utils.common import create_directories, read_yaml
+from src.utils.model import getCallbackList
 
 
 STAGE = "Trainning" ## <<< change stage name 
@@ -70,7 +71,14 @@ def main(config_path):
     # Training on base model 
     logging.info("Traning Started ......")
 
-    classifier.fit(train_data, epochs=params["epochs"], validation_data = val_data)
+    callbacks_lst = getCallbackList()
+
+    if(callbacks_lst is not None):
+        logging.info(f"using {len(callbacks_lst)} callbacks during trainning ...")
+        
+        classifier.fit(train_data, epochs=params["epochs"], validation_data = val_data , callbacks=callbacks_lst)
+    else:
+        classifier.fit(train_data, epochs=params["epochs"], validation_data = val_data)
 
     trained_model_dir = config["artifacts"]["TRAINED_MODEL_DIR"]
     create_directories(trained_model_dir) # Created dir if not exists
