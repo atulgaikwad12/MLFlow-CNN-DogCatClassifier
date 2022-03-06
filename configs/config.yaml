@@ -11,6 +11,7 @@ artifacts:
   BASE_LOG_DIR: "logs"
   TENSORBOARD_ROOT_LOG_DIR: tensorboard_log_dir
   CALLBACKS_DIR: callbacks
+  CB_BYTECODE_FNAME : callbacks_lst.pickel
 
 data:
   source_url: "https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip"
@@ -31,3 +32,14 @@ params:
   seed : 42
   buffer_size: 32
   epochs: 1
+
+callbacks:
+  list: ["ModelCheckpoint","customCallback"]
+  ModelCheckpoint:
+    filename : "model_ckpt.h5"
+    save_best_only : True
+    save_weights_only : False
+  customCallback:
+    ACCURACY_THRESHOLD : 0.95
+  
+  
