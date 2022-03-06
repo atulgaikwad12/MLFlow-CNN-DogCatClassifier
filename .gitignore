@@ -143,3 +143,4 @@ logs/running_logs.log
 src.egg-info/
 .vs/
 data/
+base_model/
