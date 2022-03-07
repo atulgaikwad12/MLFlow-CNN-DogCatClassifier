@@ -7,11 +7,8 @@ artifacts:
   BASE_MODEL_NAME: init_model.h5
   UPDATED_BASE_MODEL_NAME: updated_base_model.h5
   TRAINED_MODEL_NAME: trained_model.h5
-  CHECKPOINT_DIR: checkpoints
   BASE_LOG_DIR: "logs"
-  TENSORBOARD_ROOT_LOG_DIR: tensorboard_log_dir
   CALLBACKS_DIR: callbacks
-  CB_BYTECODE_FNAME : callbacks_lst.pickel
 
 data:
   source_url: "https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip"
@@ -33,11 +30,26 @@ params:
   buffer_size: 32
   epochs: 1
 
-callbacks:
-  cblist: ["ModelCheckpoint","customCallback"]
+callbacks: #Note- callback name added in list and in sub section should match 
+  cblist: ["ModelCheckpoint","CustomCallback","TensorBoardLog","ReduceLROnPlateau"]
+  CB_BYTECODE_FNAME : callbacks_lst.pickel
   ModelCheckpoint:
+    CHECKPOINT_DIR: checkpoints
     filename: model_ckpt.h5
     save_best_only: 1
     save_weights_only: 0
-  customCallback:
+  CustomCallback:
     ACCURACY_THRESHOLD: 0.95
+  TensorBoardLog:
+    TENSORBOARD_ROOT_LOG_DIR: tensorboard_log_dir
+  EarlyStopping:
+    patience: 5
+    restore_best_weights: 1
+  ReduceLROnPlateau:
+    monitor: loss
+    factor: 0.1
+    patience: 3
+    mode: max
+    verbose: 1
+
+
