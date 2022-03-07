@@ -12,7 +12,7 @@ def getCallbackList(config_path):
         config = read_yaml(config_path)
         callbacksbyte_file = os.path.join(
         config["artifacts"]["CALLBACKS_DIR"],
-        config["artifacts"]["CB_BYTECODE_FNAME"])
+        config["callbacks"]["CB_BYTECODE_FNAME"])
 
         if(os.path.isfile(callbacksbyte_file)):
             file = open(callbacksbyte_file, 'r') 
